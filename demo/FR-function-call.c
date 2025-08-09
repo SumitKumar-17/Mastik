@@ -26,7 +26,13 @@
 int main(int ac, char **av) {
   void *ptr = map_offset("/usr/lib64/libc-2.17.so", 0x6d300);
   if (ptr == NULL)
-    exit(0);
+  {
+    printf("Exiting\n");
+      exit(0);
+  }
+
+
+  printf("Came here\n");
 
   fr_t fr = fr_prepare();
   fr_monitor(fr, ptr);
